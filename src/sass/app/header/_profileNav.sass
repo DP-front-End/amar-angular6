@@ -1,0 +1,19 @@
+
+.profile_nav
+  height: 60px
+  +border(0px, 0px, 3px, 0px, #dedede, solid)
+  &_container
+    @extend .profile_nav
+    &_list
+      @extend .profile_nav
+      &_link
+        @extend .profile_nav
+        color: $cayn_txt
+        line-height: 40px
+        &:hover
+          +border(0px, 0px, 3px, 0px, $orange, solid)
+          background-color: #dedede
+          color: $orange_bg !important
+
+.profile_nav_active
+  @extend .profile_nav_container_list_link:hover

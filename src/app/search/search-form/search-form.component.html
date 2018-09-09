@@ -1,0 +1,114 @@
+<div class="container p-5 search_container">
+  <div class="row m-0">
+    <div class="col-md-12 p-0">
+      <div class="clearfix p-0 m-0">
+        <p class="search_zoomTxt font-weight-bold float-right">{{searchTitle}}</p>
+        <img class="search_zoom position-absolute" src="../../../assets/images/search.png"></div>
+      <br>
+      <form class="m-0 search_form text-right" #searchForm="ngForm">
+
+        <div class="row w-100 m-0">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-lg-3">
+                  <label class="search_label col-form-label">{{chooseCountry}}</label>
+                </div>
+                <div class="col-lg-9">
+                  <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                     *ngIf="countryVLD.touched && !countryVLD.valid">
+                    <b *ngIf="countryVLD.errors.required">required</b>
+                  </p>
+
+                  <select type="email" class="form-control search_select"
+                          [(ngModel)]="selectCountryVal" name="countryVLD" #countryVLD="ngModel">
+                    <option value="">{{chooseCountry}}</option>
+                    <option *ngFor="let select of selectCountry" [ngValue]="select.id">{{select.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-lg-3">
+                  <label class="search_label col-form-label">{{chooseCity}}</label>
+                </div>
+                <div class="col-lg-9">
+                  <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                     *ngIf="cityVLD.touched && !cityVLD.valid">
+                    <b *ngIf="cityVLD.errors.required">required</b>
+                  </p>
+                  <select type="email" class="form-control search_select"
+                          [(ngModel)]="selectCityVal" name="cityVLD" #cityVLD="ngModel">
+                    <option value="">{{chooseCity}}</option>
+                    <ng-container *ngFor="let select of selectCountry">
+                      <option *ngFor="let selectCity of select.cities" [ngValue]="selectCity.id">
+                        {{selectCity.name}}
+                      </option>
+                    </ng-container>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row w-100 m-0">
+          <div class="col-sm-6 mt-2">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-lg-3">
+                  <label class="search_label col-form-label">{{companyCategory}}</label>
+                </div>
+                <div class="col-lg-9">
+                  <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                     *ngIf="catVLD.touched && !catVLD.valid">
+                    <b *ngIf="catVLD.errors.required">required</b>
+                  </p>
+                  <select  type="email" class="form-control search_select"
+                          [(ngModel)]="selectCategoryVal" name="catVLD" #catVLD="ngModel">
+                    <option value="">{{companyCategory}}</option>
+                    <option  *ngFor="let select of selectCategory" [ngValue]="select.id">{{select.name}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 mt-2">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-lg-3">
+                  <label class="search_label col-form-label">{{companyIndustry}}</label>
+                </div>
+                <div class="col-lg-9" >
+                  <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                     *ngIf="specializationVLD.touched && !specializationVLD.valid">
+                    <b *ngIf="specializationVLD.errors.required">required</b>
+                  </p>
+                  <select  type="email" class="form-control search_select"
+                          [(ngModel)]="selectSpecializationVal" name="specializationVLD" #specializationVLD="ngModel">
+                    <option value="">{{companyIndustry}}</option>
+                    <ng-container *ngFor="let select of selectCategory">
+                    <option  *ngFor="let select of select.specializations" ngValue="{{select.id}}">{{select.name}}</option>
+                    </ng-container>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-left">
+          <button class="btn search_btn font-weight-bold"
+                  (click)="searchSubmit()"
+                  [disabled]="!searchForm.valid">{{btnName}}
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container px-4">
+  <hr class="search_lineShadow position-relative">
+</div>

@@ -1,0 +1,42 @@
+.header
+  &_stRow
+    height: 60px
+    background-color: $gray_bg
+  &_registerBtn
+    background-color: $cayn_txt
+    color: $white_bg !important
+    margin: 0 3px
+    @extend %hvr-radial-in
+    &:before
+      background: #007c8a
+    & img
+      height: 20px
+
+  &_loginBtn
+    color: $cayn_txt !important
+    & img
+      height: 20px
+
+  &_navBar_list_word
+    color: $gray_txt !important
+  &_ndRow
+    height: 60px
+    background-color: $dark_bg
+    &_navBar_link
+      color: $white_bg !important
+      margin: 0 3px
+      @extend %hvr-shutter-out-horizontal
+  & .active_link
+    background-color: $orange_bg
+    &:before
+      content: none
+
+  & .dropdown-menu
+    right: 2px
+    left: auto
+
+.navResponsive
+  & img
+    height: 40px
+    margin-top: 10px
+    float: right

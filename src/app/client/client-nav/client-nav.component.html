@@ -1,0 +1,10 @@
+<li class="nav-item dropdown list-unstyled">
+  <a class="btn navbar-btn ml-0 header_registerBtn" (click)="toggleCollapse()">{{listMyAccount}}</a>
+  <div class="dropdown-menu text-right float-right" [class.show]="show">
+    <a class="dropdown-item" routerLink="/package">{{listPackage}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" routerLink="/Setting">{{listSetting}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" (click)= "logout()">{{listLogOut}}</a>
+  </div>
+</li>

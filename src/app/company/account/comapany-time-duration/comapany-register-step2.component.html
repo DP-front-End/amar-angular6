@@ -1,0 +1,729 @@
+<section class="pageContainer d-flex">
+  <div class="container">
+    <div class="row mx-0 mt-5 mb-0">
+      <!-- <hr class="pageContainer_borderLine m-0 p-0 w-100">
+    <h1 class="text-center pageContainer_title d-table py-2 px-3 mb-5">إضافة مشاريع تم تنفيذها</h1>
+      !-->
+      <div class="pb-2 pt-0 px-0 m-0 text-justify pageContainer_prag d-block w-100">
+        <div class="row pageContainer_registerSteps">
+          <h2 class="col-12 text-center pt-0 m-0 font-weight-bold pageContainer_registerSteps_title">{{headTitle}}</h2>
+
+          <div class="d-block col-12 col-sm-12 col-md-10 col-lg-8 m-auto pt-5">
+            <form class="text-center" #updateWorkinDayz="ngForm">
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+
+                <div class="row">
+                  <div class="col-2">
+                  </div>
+                  <div class="col-5">
+                    <h5 class="col-12 text-center pt-0 m-0 font-weight-normal pageContainer_registerSteps_title">الفترة
+                      الصباحية</h5>
+                  </div>
+                  <div class="col-5">
+                    <h5 class="col-12 text-center pt-0 m-0 font-weight-normal pageContainer_registerSteps_title">الفترة
+                      المسائية</h5>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{saturday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="saturdayMorFrom" name="saturdayMorning.from"
+                                #saturdayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="saturdayMorTo" name="saturdayMorning.to"
+                                #saturdayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+
+                                [(ngModel)]="saturdayNigFrom" name="saturdayNight.from"
+                                #saturdayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="saturdayNigTo" name="saturdayNight.to"
+                                #saturdayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{sunday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="sundayMorFrom" name="sundayMorning.from"
+                                #sundayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="sundayMorTo" name="sundayMorning.to"
+                                #sundayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="sundayNigFrom" name="sundayNight.from"
+                                #sundayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="sundayNigTo" name="sundayNight.to"
+                                #sundayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{monday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="mondayMorFrom" name="mondayMorning.from"
+                                #mondayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="mondayMorTo" name="mondayMorning.to"
+                                #mondayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="mondayNigFrom" name="mondayNight.from"
+                                #mondayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="mondayNigTo" name="mondayNight.to"
+                                #mondayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{tuesday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="tuesdayMorFrom" name="tuesdayMorning.from"
+                                #tuesdayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="tuesdayMorTo" name="tuesdayMorning.to"
+                                #tuesdayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="tuesdayNigFrom" name="tuesdayNight.from"
+                                #tuesdayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="tuesdayNigTo" name="tuesdayNight.to"
+                                #tuesdayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{wednesday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="wednesdayMorFrom" name="wednesdayMorning.from"
+                                #wednesdayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="wednesdayMorTo" name="wednesdayMorning.to"
+                                #wednesdayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="wednesdayNigFrom" name="wednesdayNight.from"
+                                #wednesdayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="wednesdayNigTo" name="wednesdayNight.to"
+                                #wednesdayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{thursday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="thursdayMorFrom" name="thursdayMorning.from"
+                                #thursdayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="thursdayMorTo" name="thursdayMorning.to"
+                                #thursdayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="thursdayNigFrom" name="thursdayNight.from"
+                                #thursdayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="thursdayNigTo" name="thursdayNight.to"
+                                #thursdayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group pageContainer_registerSteps_time py-2 m-0">
+                <div class="row">
+                  <div class="col-2">
+                    <label class="col-form-label">{{friday}}</label>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="fridayMorFrom" name="fridayMorning.from"
+                                #fridayMorning.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="fridayMorTo" name="fridayMorning.to"
+                                #fridayMorning.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة الصباحية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="row m-0">
+                      <div class="col px-1">
+
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="fridayNigFrom" name="fridayNight.from"
+                                #fridayNight.from="ngModel">
+                          <option value="">من</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                      <div class="col px-1">
+
+                        <select required class="pageContainer_registerSteps_input py-2 w-100 form-control"
+                                [(ngModel)]="fridayNigTo" name="fridayNight.to"
+                                #fridayNight.to="ngModel">
+                          <option value="">الي</option>
+                          <option value="12">12</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="0">لانعمل في الفترة المسائية</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-12 text-center p-0 mt-4">
+                <div class="col-12 text-center p-0 mt-4">
+                  <small class="text-success w-100 d-block text-right font-weight-bold" *ngIf="updateSuccess">تم
+                    التعديل بنجاح!
+                  </small>
+                  <button class="btn pageContainer_registerSteps_saveBtn" (click)="updateWorkinDays()"
+                          [disabled]="!updateWorkinDayz.valid">{{updateBtn}}
+                  </button>
+                  <img *ngIf="loading"
+                       src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+                </div>
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

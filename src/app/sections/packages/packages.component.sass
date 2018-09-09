@@ -1,0 +1,32 @@
+@import "../../../sass/app/variebles/variebles"
+@import "../../../sass/app/base/base"
+@import "../../../sass/app/mixins/mixins"
+@import "../../../sass/app/extends/extends"
+@import "../../../sass/app/animation/animation"
+
+.packages
+  &_borderLine
+    @extend %borderLine
+  &_title
+    @extend %title
+  &_pgk
+    background-color: $gray_bg
+    border: 3px dashed $orange_bg
+    &_title
+      width: 100px
+      height: 100px
+      background-color: $orange_bg
+      +border(4px, 4px, 4px, 4px, $white_bg, solid)
+      margin-left: auto
+      margin-right: auto
+      margin-top: -50px
+      +corners(100px)
+      color: $white_bg
+      line-height: 96px
+    &_name
+      color: $dark_bg
+    &_btn
+      background-color: $orange_bg
+    & hr
+      border: 1px solid rgba(229, 145, 37, 0.42)
+

@@ -1,0 +1,14 @@
+@import "../../../sass/app/variebles/variebles"
+@import "../../../sass/app/base/base"
+@import "../../../sass/app/mixins/mixins"
+@import "../../../sass/app/extends/extends"
+@import "../../../sass/app/animation/animation"
+
+.footer
+  background-color: $dark_bg
+  color: $white_bg
+  &_title
+    background-color: $orange_bg
+  &_lineColor
+    @extend .footer_title
+    height: 64px

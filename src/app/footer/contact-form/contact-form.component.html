@@ -1,0 +1,31 @@
+<h1 class="py-2 footer_title">{{blockTitle}}</h1>
+<form class="footer_form py-4" #f="ngForm" (ngSubmit)="submit(f)">
+  <div class="form-group">
+    <p class="text-danger text-right font-weight-bold position-absolute validateText"
+       *ngIf="username.touched && !username.valid">
+      {{nameValidate}}
+    </p>
+    <input required type="text" name="username" class="py-2 form-control footer_input" ngModel #username="ngModel"
+           placeholder="{{placeHolderName}}">
+  </div>
+  <div class="form-group">
+    <p class="text-danger text-right font-weight-bold position-absolute validateText"
+       *ngIf="email.touched && !email.valid">
+      {{emailValidate}}
+    </p>
+    <input required type="email" class="py-2 form-control footer_input" name="email" ngModel #email="ngModel"
+           placeholder="{{placeHolderEmail}}">
+  </div>
+  <div class="form-group">
+    <p class="text-danger text-right font-weight-bold position-absolute validateText"
+       *ngIf="message.touched && !message.valid">
+      {{messageValidate}}
+    </p>
+    <textarea required class="py-2 form-control footer_input" rows="3" ngModel #message="ngModel" name="message"
+              placeholder="{{placeHolderMessage}}"></textarea>
+  </div>
+  <div class="text-left">
+    <button type="submit" class="btn footer_btn" [disabled]="!f.valid">{{btnForm}}</button>
+  </div>
+</form>
+

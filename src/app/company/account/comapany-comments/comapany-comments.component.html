@@ -1,0 +1,61 @@
+<section class="pageContainer">
+  <div class="container p-0">
+    <div class="row mx-0 my-5 pt-0 mb-0">
+      <h2 class="col-12 text-center p-0 m-0 font-weight-bold searchResult_title">{{commentsHeadTitle}}</h2>
+    </div>
+    <div class="searchResult_results pageContainer_coDetails_comments row mx-0 mb-3">
+      <div class="media text-right searchResult_results_media col-lg-12 mb-1">
+        <div class="pageContainer_coDetails row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{commentName}}: </strong> name
+              </div>
+            </div>
+
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{commentDes}}:
+            </strong>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+              sollicitudin.
+              Cras
+              purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi
+              vulputate fringilla. Donec lacinia congue felis in faucibus.
+              <br>
+              <button class="btn searchResult_results_media_body_btn float-left">{{postBtn}}</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="media text-right searchResult_results_media col-lg-12 mb-1" *ngFor="let comment of getComment">
+        <div class="pageContainer_coDetails row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{commentName}}: </strong> {{comment.client.name}}
+              </div>
+            </div>
+
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{commentDes}}:
+            </strong>
+              {{comment.comment}}
+              <!-- <br>
+               <button class="btn searchResult_results_media_body_btn float-left">{{postBtn}}</button> !-->
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<li *ngFor="let comment of getComment">
+  {{comment.id}}
+  <br>
+  {{comment.client.id}}
+</li>
+
+

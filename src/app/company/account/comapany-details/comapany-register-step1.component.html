@@ -1,0 +1,221 @@
+<section class="pageContainer d-flex">
+  <div class="container">
+    <div class="row mx-0 mt-5 mb-0">
+      <div class="pb-2 pt-0 px-0 m-0 text-justify pageContainer_prag d-block w-100">
+        <div class="row pageContainer_registerSteps">
+          <h2 class="col-12 text-center pt-0 m-0 font-weight-bold pageContainer_editSetting_title">{{headTitle}}</h2>
+          <div class="d-block col-12 col-sm-12 col-md-10 col-lg-8 m-auto pt-5">
+            <form #updateDetailsForm="ngForm">
+              <div class="form-group">
+                <label>{{emailPlaceHolder}}</label>
+                <input disabled type="text" class="form-control py-3 pageContainer_editSetting_input"
+                       value="{{CompanyEmail}}" placeholder="{{emailPlaceHolder}}">
+              </div>
+              <div class="form-group">
+
+                <label class="float-right">
+                  {{CompanyNameLabel}}</label>
+                <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                       *ngIf="coNameValid.touched && !coNameValid.valid">
+                  <b *ngIf="coNameValid.errors.required">required</b>
+                </small>
+                <input required type="text" class="form-control py-3 pageContainer_editSetting_input"
+                       [(ngModel)]="coNameVal" name="coNameValid" #coNameValid="ngModel"
+                       value="{{coNameVal}}" placeholder="{{coName}}">
+
+              </div>
+              <div class="form-group">
+                <label>{{coPrief}}</label>
+                <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                       *ngIf="coPriefValid.touched && !coPriefValid.valid">
+                  <b *ngIf="coPriefValid.errors.required">required</b>
+                </small>
+                <textarea required class="form-control py-3 pageContainer_editSetting_input" rows="5"
+                          [(ngModel)]="coPriefVal" name="coPriefValid" #coPriefValid="ngModel"
+                          placeholder="{{coPrief}}">{{coPriefVal}}</textarea>
+              </div>
+              <div class="form-group">
+
+                <label>{{phonePlaceHolder}}</label>
+                <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                       *ngIf="coPhoneValid.touched && !coPhoneValid.valid">
+                  <b *ngIf="coPhoneValid.errors.required">required</b>
+                </small>
+                <input disabled required type="text" class="form-control py-3 pageContainer_editSetting_input"
+                       [(ngModel)]="coPhoneVal" name="coPhoneValid" #coPhoneValid="ngModel"
+                       value="{{coPhoneVal}}" placeholder="{{phonePlaceHolder}}">
+              </div>
+              <!--  <div class="form-group">
+                  <label>passwordPlaceHolder</label>
+                  <input type="text" class="form-control py-3 pageContainer_editSetting_input"
+                         value="{{CompanyPass}}"   placeholder="{{passwordPlaceHolder}}">
+                </div> !-->
+
+              <div *ngFor="let select of countries">
+                <div class="form-group">
+                  <label>{{chooseCountryPlaceHolder}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coCountryValid.touched && !coCountryValid.valid">
+                    <b *ngIf="coCountryValid.errors.required">required</b>
+                  </small>
+                  <select required class="form-control py-3 pageContainer_editSetting_input"
+                          [(ngModel)]="coCountryVal" name="coCountryValid" #coCountryValid="ngModel"
+                  >
+                    <option disabled value="{{CompanyCountyID}}">{{CompanyCountyName}}</option>
+                    <option value="{{select.id}}">{{select.name}}</option>
+                  </select>
+                </div>
+                <div class="form-group" *ngFor="let city of select.cities">
+                  <label>{{chooseCityPlaceHolder}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coCityValid.touched && !coCityValid.valid">
+                    <b *ngIf="coCityValid.errors.required">required</b>
+                  </small>
+                  <select required class="form-control py-3 pageContainer_editSetting_input"
+                          [(ngModel)]="coCityVal" name="coCityValid" #coCityValid="ngModel">
+                    <option disabled value="{{CompanyCityID}}">{{CompanyCityName}}</option>
+                    <option value="{{city.id}}">{{city.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>{{websiteUrl}}</label>
+                <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                       *ngIf="coWebsiteValid.touched && !coWebsiteValid.valid">
+                  <b *ngIf="coWebsiteValid.errors.required">required</b>
+                </small>
+                <input required type="text" class="form-control py-3 pageContainer_editSetting_input"
+                       [(ngModel)]="coWebsiteVal" name="coWebsiteValid" #coWebsiteValid="ngModel"
+                       value="{{coWebsiteVal}}" placeholder="{{websiteUrl}}">
+              </div>
+              <div class="row" *ngFor="let link of coSocialLinks">
+                <div class="form-group col-6">
+                  <label>{{facebookUrl}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coFacebookValid.touched && !coFacebookValid.valid">
+                    <b *ngIf="coFacebookValid.errors.required">required</b>
+                  </small>
+                  <input type="url" class="form-control pageContainer_editSetting_input py-3"
+                         [(ngModel)]="link.facebook" name="coFacebookValid" #coFacebookValid="ngModel"
+                         value="{{link.facebook}}" placeholder="{{facebookUrl}}">
+                </div>
+
+                <div class="form-group col-6">
+
+                  <label>{{twitterUrl}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coTwitterValid.touched && !coTwitterValid.valid">
+                    <b *ngIf="coTwitterValid.errors.required">required</b>
+                  </small>
+                  <input type="url" class="form-control pageContainer_editSetting_input py-3"
+                         [(ngModel)]="link.twitter" name="coTwitterValid" #coTwitterValid="ngModel"
+                         value="{{link.twitter}}" placeholder="{{twitterUrl}}">
+                </div>
+
+              </div>
+              <div class="row">
+                <div class="form-group col-6">
+                  <label>{{coLogo}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coLogoValid.touched && !coLogoValid.valid">
+                    <b *ngIf="coLogoValid.errors.required">required</b>
+                  </small>
+                  <input type="file" class="form-control-file" placeholder="{{coLogo}}"
+                         (change)="uploadLogo($event)" [(ngModel)]="coLogoValids" name="coLogoValid"
+                         #coLogoValid="ngModel"
+                  >
+                  <img *ngIf="loadingImgLogo"
+                       src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+                </div>
+                <div class="col-6">
+                  <img class="img-thumbnail" src="{{logoImage}}"/>
+                </div>
+                <div class="form-group col-6">
+                  <label>{{coID}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coIDValid.touched && !coIDValid.valid">
+                    <b *ngIf="coIDValid.errors.required">required</b>
+                  </small>
+                  <input type="file" class="form-control-file" placeholder="{{coID}}"
+                         (change)="uploadID($event)" [(ngModel)]="coIDValids" name="coIDValid" #coIDValid="ngModel"
+                  >
+                  <img *ngIf="loadingImgID"
+                       src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+                <div class="col-6">
+                  <img class="img-thumbnail" src="{{IDImage}}"/>
+                </div>
+              </div>
+              <div class="row" *ngFor="let select of cat">
+                <div class="form-group col-6">
+                  <label>{{coCategory}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coCatValid.touched && !coCatValid.valid">
+                    <b *ngIf="coCatValid.errors.required">required</b>
+                  </small>
+                  <select required class="form-control pageContainer_editSetting_input py-3"
+                          [(ngModel)]="coCatVal" name="coCatValid" #coCatValid="ngModel"
+                  >
+                    <option disabled value="{{CatID}}">{{CatName}}</option>
+                    <option value="{{select.id}}">{{select.name}}</option>
+                  </select>
+                </div>
+                <div class="form-group col-6" *ngFor="let special of select.specializations">
+                  <label>{{coSpecialization}}</label>
+                  <small class="text-danger text-left font-weight-normal float-left m-0 p-0"
+                         *ngIf="coSpecialValid.touched && !coSpecialValid.valid">
+                    <b *ngIf="coSpecialValid.errors.required">required</b>
+                  </small>
+                  <select required class="form-control pageContainer_editSetting_input py-3"
+                          [(ngModel)]="coSpecialVal" name="coSpecialValid" #coSpecialValid="ngModel"
+                  >
+                    <option disabled value="{{specializationID}}">{{specializationName}}</option>
+                    <option value="{{special.id}}">{{special.name}}</option>
+                  </select></div>
+              </div>
+              <h5 class="py-3 text-center font-weight-bold pageContainer_registerSteps_title">{{coImage}}</h5>
+
+              <div class="row">
+                <div class="form-group col-12">
+                  <input type="file" name="image" (change)="uploadImageCo($event)" />
+                  <img *ngIf="loadingImgImagesCo"
+                       src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                </div>
+                <div class="row m-0 p-0">
+                  <div class="col-3" *ngFor="let image of images">
+                    <img class="img-thumbnail" src="{{image}}"/>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-12 text-center p-0 mt-4">
+                <small class="text-success w-100 d-block text-right font-weight-bold" *ngIf="updateSuccess">تم
+              التعديل بنجاح!
+            </small>
+              <button class="btn pageContainer_editSetting_saveBtn" (click)="updateSetting()"
+                      [disabled]="!updateDetailsForm.valid">{{updateBtn}}
+              </button>
+          </div>
+
+          <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--
+{{CoDetails.id}}
+<br>{{CoDetails.description}}
+<br>{{CoDetails.phone}}
+<br>{{CoDetails.name}}
+<br>{{CoDetails.country.id}}
+<br>{{CoDetails.country.name}}
+
+
+!-->
+

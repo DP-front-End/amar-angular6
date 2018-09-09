@@ -1,0 +1,39 @@
+.pageContainer
+  &_coDetails
+    border: none
+    &_info
+      border: none
+      background-color: $white_bg
+    &_projects
+      background-color: $gray_bg
+      &_portfolio
+        border: none !important
+    &_images
+      &_block
+        +border(3px, 3px, 3px, 3px, $orange_bg, solid)
+        +border-radius(5px)
+      &_arrowSlider
+        background-color: #8e8e8e
+        width: 5%
+        &.carousel-control-prev
+          left: -5%
+        &.carousel-control-next
+          right: -5%
+      &_indicator
+        bottom: -35px
+        & li
+          background-color: $cayn_txt
+          height: 5px
+          &.active
+            background-color: $orange_bg
+    &_comments
+      & input
+        @extend %inputStyle
+      & textarea
+        @extend %inputStyle
+        height: auto !important
+      & button
+        @extend %btnOrange
+        @extend %hvr-radial-in
+        &:before
+          background: #ffa42e

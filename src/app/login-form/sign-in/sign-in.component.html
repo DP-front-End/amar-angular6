@@ -1,0 +1,68 @@
+<div class="container p-5 search_container">
+  <div class="row m-0">
+    <div class="col-md-12 p-0">
+      <div class="clearfix p-0 m-0">
+        <h2 class="font-weight-bold text-center mb-4">{{loginHeadTitle}}</h2>
+      </div>
+      <br>
+      <form class="row m-0 search_form text-right" #loginForm="ngForm" (ngSubmit)="OnSubmit(email.value, password.value)">
+        <div class="alert alert-danger col-12" *ngIf="invalidLogIn">
+          username or password is invalid
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{emailLabel}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="email.touched && !email.valid">
+                  <b *ngIf="email.errors.required">{{emailValidate}}</b>
+                  <b *ngIf="email.errors.pattern">{{emailMustValidate}}</b>
+                </p>
+                <input required name="email" pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                       class="form-control search_select" #email="ngModel" ngModel
+                       placeholder="{{emailLabel}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{PasswordLabel}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="password.touched && !password.valid">
+                  <b *ngIf="password.errors.required">{{passwordValidate}}</b>
+                  <b *ngIf="password.errors.minlength">{{passLeastValidate}}</b>
+                </p>
+                <input class="form-control search_select" minlength="8" required name="password" #password="ngModel"
+                       ngModel
+                       placeholder="{{PasswordLabel}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-left">
+          <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+          <button class="btn search_btn font-weight-normal" [disabled]="!loginForm.valid">{{loginBtn}}
+          </button>
+          <div class="clearfix"></div>
+               <p class="text-right m-0"> ليس لديك حساب؟ <a [routerLink]="['/sign-up']" class="btn btn-link"><b
+          class="btn-outline-light">{{registerBtn}}</b></a></p>
+          <p class="text-right m-0"> نسيت كلمة السر؟ <a [routerLink]="['/forget-pass']" class="btn btn-link"><b
+            class="btn-outline-light">{{forgetPass}}</b></a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container px-4">
+  <hr class="search_lineShadow position-relative">
+</div>
+<app-copyright></app-copyright>

@@ -1,0 +1,26 @@
+export enum ExtendHeadTitles {
+  searchTitle = 'عن الشركة',
+  aboutTitle = 'مقدمة عن عمار للمقاولات',
+  partenrsTitle = 'شركات المقاولات',
+  packagesTitle = 'شركائنا',
+  searchResultTitle = 'نتائج البحث',
+  loginTitle = 'الدخول',
+  accountConfirmationTitle = '',
+  settingPageTitle = 'إعدادات الحساب',
+  changePassTitle = 'تغيير كلمة السر',
+  createAdTitle = 'اضف اعلان',
+  forgetPasswordTitle = 'نسيت كلمة السر',
+  registerTitle = 'التسجيل',
+  registerStep1Title = 'بيانات الشركة',
+  registerStep2Title = 'مواعيد العمل',
+  addProjectTitle = 'إضافة مشاريع تم تنفيذها',
+  companyProfileTitle = 'بيانات الشركة',
+  companyProjectTitle = 'مشاريع الشركة',
+  companyCommentTitle = 'تعليق المستخدم للشركات',
+  purachaseTitle = '',
+  contactInfoTitle = 'أتصل بنا',
+  ContactFormTitle = 'معلومات الاتصال',
+  projectTitle = 'المشاريع المضافة',
+  adsTitle = 'الاعلانات المضافة'
+
+}

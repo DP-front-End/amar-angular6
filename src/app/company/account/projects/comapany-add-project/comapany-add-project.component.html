@@ -1,0 +1,64 @@
+<section class="pageContainer d-flex">
+  <div class="container">
+    <div class="row mx-0 mt-5 mb-0">
+      <div class="pb-2 pt-0 px-0 m-0 text-justify pageContainer_prag d-block w-100">
+        <div class="row pageContainer_registerSteps">
+          <h2 class="col-12 text-center pt-0 m-0 font-weight-bold pageContainer_registerSteps_title">{{headTitle}}</h2>
+          <div class="d-block col-12 col-sm-12 col-md-10 col-lg-8 m-auto pt-5">
+            <form #ProjectForm="ngForm">
+              <div class="form-group">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="nameVLD.touched && !nameVLD.valid">
+                  <b *ngIf="nameVLD.errors.required">required</b>
+                </p>
+                <input required type="text" class="form-control py-3 pageContainer_registerSteps_input"
+                       placeholder="{{projectName}}" [(ngModel)]="name" name="nameVLD" #nameVLD="ngModel">
+              </div>
+              <div class="form-group pt-2">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="descriptionVLD.touched && !descriptionVLD.valid">
+                  <b *ngIf="descriptionVLD.errors.required">required</b>
+                </p>
+                  <textarea required class="form-control py-3 pageContainer_registerSteps_input" rows="5"
+                            placeholder="{{projectDesc}}" [(ngModel)]="description" name="descriptionVLD"
+                            #descriptionVLD="ngModel"></textarea>
+              </div>
+              <div class="form-group pt-2">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="addressVLD.touched && !addressVLD.valid">
+                  <b *ngIf="addressVLD.errors.required">required</b>
+                </p>
+                <input required type="text" class="form-control py-3 pageContainer_registerSteps_input"
+                       placeholder="{{projectAddress}}" [(ngModel)]="address" name="addressVLD"
+                       #addressVLD="ngModel">
+              </div>
+              <h5 class="py-3 text-center font-weight-bold pageContainer_registerSteps_title">{{projectImgs}}</h5>
+              <div class="row">
+                <div class="form-group col-12">
+                  <input type="file" (change)="uploadImageCo($event)" class="form-control-file" multiple>
+                </div>
+                <img *ngIf="loadingFile"
+                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+                <div class="row m-0 p-0">
+                  <div class="col-3" *ngFor="let image of images">
+                    <img class="img-thumbnail" src="{{image}}"/>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-12 text-center p-0 mt-4">
+                <button class="btn w-auto pageContainer_registerSteps_saveBtn" (click)="OnSubmit()"
+                        [disabled]="!ProjectForm.valid">
+                  {{addBtn}}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

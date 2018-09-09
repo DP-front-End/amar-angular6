@@ -1,0 +1,41 @@
+@import "../../../sass/app/variebles/variebles"
+@import "../../../sass/app/base/base"
+@import "../../../sass/app/mixins/mixins"
+@import "../../../sass/app/extends/extends"
+@import "../../../sass/app/animation/animation"
+
+.search
+  &_container
+    position: relative
+    background-color: $orange_bg
+    color: $white_bg
+    margin-bottom: -259px
+    margin-top: -185px
+    z-index: 10000
+    +border(2px, 2px, 2px, 2px, $white_bg, solid)
+    +corners(10px)
+  &_zoom
+    right: -5rem
+    top: -2rem
+  &_zoomTxt
+    margin-right: 5rem
+    margin-top: -7px
+    color: $black_txt
+    font-size: 18px
+  &_label
+    color: $black_txt
+    font-weight: bolder
+  &_select
+    @extend %inputStyle
+  &_btn
+    background-color: $cayn_txt
+    @extend %inputStyle
+    color: $white_bg
+    width: 120px
+    @extend %hvr-radial-in
+    &:before
+      background: #007c8a
+  &_lineShadow
+    +boxShadow(0, 0, 10px, 1px, #333)
+    margin-top: 102px
+    border: 0

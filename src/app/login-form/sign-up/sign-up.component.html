@@ -1,0 +1,173 @@
+<div class="container p-5 search_container">
+  <div class="row m-0">
+    <div class="col-md-12 p-0">
+      <div class="clearfix p-0 m-0">
+        <h2 class="font-weight-bold text-center mb-4">{{signUpTitle}}</h2>
+      </div>
+      <br>
+      <form class="row m-0 search_form text-right" #clientRegisterForm="ngForm"
+            (ngSubmit)="OnSubmit(clientRegisterForm)">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{namePlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="name.touched && !name.valid">
+                  <b *ngIf="name.errors.required"> {{nameValidate}}</b>
+                  <b *ngIf="name.errors.minlength">{{nameLeastValidate}}</b>
+                </p>
+                <input required class="form-control search_select" type="text" minlength="4"
+                       name="name" #name="ngModel" (ngModel)="userClient.name"
+
+
+                       placeholder="{{namePlaceHolder}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{emailPlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="email.touched && !email.valid">
+                  <b *ngIf="email.errors.required">{{emailValidate}}</b>
+                  <b *ngIf="email.errors.pattern">{{emailMustValidate}}</b>
+
+                </p>
+                <input required class="form-control search_select"
+                       pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                       type="email" (ngModel)="userClient.email" #email="ngModel" name="email"
+                       placeholder="{{emailPlaceHolder}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{passwordPlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText "
+                   *ngIf="password.touched && !password.valid">
+                  <b *ngIf="password.errors.required">{{passwordValidate}}</b>
+                  <b *ngIf="password.errors.minlength">{{passLeastValidate}}</b>
+
+                </p>
+
+                <input required class="form-control search_select" type="password" minlength="8"
+                       data-ng-class="{'ng-invalid':myForm.confirmPassword.$error.match}"
+                       placeholder="{{passwordPlaceHolder}}" (ngModel)="userClient.password" #password="ngModel"
+                       name="password"
+                />
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{passwordPlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText "
+                   *ngIf="password_confirmation.touched && !password_confirmation.valid">
+                  <b *ngIf="password_confirmation.errors.required">{{passwordValidate}}</b>
+                  <b *ngIf="password_confirmation.errors.match">{{passwordValidate}}</b>
+
+                </p>
+
+                <input required class="form-control search_select" type="password"
+                       (ngModel)="userClient.password_confirmation" #password_confirmation="ngModel"
+                       match="password"
+                       name="password_confirmation"
+                       placeholder="{{passwordPlaceHolder}}"/>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{phonePlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="phone.touched && !phone.valid">
+                  <b *ngIf="phone.errors.required"> {{phoneValidate}}</b>
+
+                </p>
+                <input required class="form-control search_select" type="number" name="phone" #phone="ngModel"
+                       (ngModel)="userClient.phone"
+                       placeholder="{{phonePlaceHolder}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{chooseCountryPlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                >
+                  {{phoneValidate}}
+                </p>
+                <select class="form-control search_select" formControlName="country_id">
+                  <option>{{chooseCountryPlaceHolder}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div> !-->
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-3">
+                <label class="search_label col-form-label">{{chooseCityPlaceHolder}}</label>
+              </div>
+              <div class="col-lg-9" *ngFor="let select of city">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="city_id.touched && !city_id.valid">
+                  <b *ngIf="city_id.errors.required"> {{cityValidate}}</b>
+                </p>
+
+                <select class="form-control search_select" name="city_id" (ngModel)="userClient.city_id" #city_id="ngModel" required>
+                  <option value="{{select.id}}">{{select.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-left mt-2">
+          <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+          <button class="btn search_btn font-weight-bold" [disabled]="!clientRegisterForm.valid">{{signUpBtn}}</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container px-4">
+  <hr class="search_lineShadow position-relative">
+</div>
+<app-copyright></app-copyright>
+<div *ngFor="let select of city">
+    <div>{{select.id}}{{select.name}}</div>
+</div>

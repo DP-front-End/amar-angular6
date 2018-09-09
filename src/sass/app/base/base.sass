@@ -1,0 +1,27 @@
+html, body
+  font-family: 'Tajawal', sans-serif
+
+.page
+  & .search
+    height: auto
+  & .pageContainer
+    &_borderLine
+      @extend %borderLine
+    &_title
+      @extend %title
+    &_prag
+      line-height: 2
+      word-spacing: 3px
+      & h4
+        color: $dark_bg !important
+      & strong
+        color: $dark_bg
+
+input.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid, select.ng-touched.ng-invalid
+  border-color: #aa0000
+
+input.ng-valid, textarea.ng-valid, select.ng-valid
+  border-color: #148e30
+
+.validateText
+  margin-top: -26px

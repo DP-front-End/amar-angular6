@@ -1,0 +1,35 @@
+@import "../../../../../sass/app/variebles/variebles"
+@import "../../../../../sass/app/base/base"
+@import "../../../../../sass/app/mixins/mixins"
+@import "../../../../../sass/app/extends/extends"
+@import "../../../../../sass/app/animation/animation"
+.pageContainer
+  &_registerSteps
+    &_input
+      @extend %inputStyle
+      height: auto !important
+    &_btn
+      background-color: $gray_bg
+      color: $gray_txt
+      +border(3px, 1px, 3px, 1px, $cayn_txt, solid)
+      width: 200px
+      cursor: auto !important
+      &_nu
+        background: $cayn_txt
+        width: 20px
+        color: $white_bg
+    &_title
+      color: $orange_bg
+    & .stepIsHold
+      background-color: $orange_bg
+      color: $white_bg
+    & .stepIsDone
+      background-color: $cayn_txt
+      color: $white_bg
+    &_saveBtn
+      @extend %btnCayn
+      background-color: $orange_bg
+      @extend %hvr-radial-in
+      &:before
+        background: #ffa42e
+

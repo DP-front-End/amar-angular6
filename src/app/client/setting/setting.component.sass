@@ -1,0 +1,30 @@
+@import "../../../sass/app/variebles/variebles"
+@import "../../../sass/app/base/base"
+@import "../../../sass/app/mixins/mixins"
+@import "../../../sass/app/extends/extends"
+@import "../../../sass/app/animation/animation"
+
+.page
+  & .pageContainer
+    &_editSetting
+      &_card
+        &_title
+          color: $orange_bg
+      &_input
+        @extend %inputStyle
+        height: auto !important
+      &_btn
+        background-color: $cayn_txt
+        color: $white_bg
+        @extend %hvr-radial-in
+        & img
+          height: 20px
+      &_title
+        color: $orange_bg
+      &_saveBtn
+        @extend %btnCayn
+        background-color: $orange_bg
+        @extend %hvr-radial-in
+
+.ndTitle
+  color: $dark_bg !important

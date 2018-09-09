@@ -1,0 +1,276 @@
+<section class="pageContainer">
+  <div class="container p-0">
+    <div class="row mx-0 mt-5 mb-0">
+      <hr class="pageContainer_borderLine m-0 p-0 w-100">
+      <h1 class="text-center pageContainer_title d-table py-2 px-3 mb-5">{{headTitle}}</h1>
+    </div>
+    <div class="searchResult_results row mx-0 mb-3">
+      <div class="pageContainer_coDetails_info media text-right searchResult_results_media">
+        <div class=" row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="row m-0 searchResult_results_media_body_stRow">
+              <div class="col-3 p-0 text-left">
+                <img class="rounded searchResult_results_media_body_logo"
+                     src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16430f3c9e1%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16430f3c9e1%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                     alt="">
+              </div>
+              <div class="col-9 searchResult_results_media_body_details">
+                <h5 class="mt-0 font-weight-bold searchResult_results_media_body_coName">{{coName}}<span>: {{companyDTS.name}}</span>
+                </h5>
+                <div class="clearfix"></div>
+                <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+                  <div class="py-2"><strong
+                    class="searchResult_results_media_body_option">{{coCity}}:</strong><span> {{companyDTS.city.name}}</span>
+                  </div>
+                  <div class="py-2"><strong
+                    class="searchResult_results_media_body_option">{{coCategory}}:</strong><span> {{companyDTS.category.name}}</span>
+                  </div>
+                  <div class="py-2"><strong
+                    class="searchResult_results_media_body_option">{{coSpecialization}}:</strong><span> {{companyDTS.specialization.name}}</span>
+                  </div>
+                </div>
+                <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+                  <div class="py-2"><strong
+                    class="searchResult_results_media_body_option">{{coAddress}}:</strong></div>
+                  <div class="py-2"><strong
+                    class="searchResult_results_media_body_option">{{coPhone}}:</strong><span> {{companyDTS.phone}}</span>
+                  </div>
+                  <div class="py-2"><strong
+                    class="searchResult_results_media_body_option">{{coEmail}}:</strong><span> {{companyDTS.email}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{coPrief}}:</strong></div>
+            </div>
+            <p>{{companyDTS.description}}</p>
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{coImage}}
+            </strong></div>
+            <div class="row text-center pageContainer_coDetails_images">
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+            </div>
+            <div class="d-md-flex d-block w-100 navbar px-0 py-3 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{coLinks}}</strong></div>
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{CoRate}}</strong></div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="pageContainer_coDetails_projects">
+    <div class="container mx-auto mt-5 mb-0 p-0">
+      <hr class="pageContainer_borderLine m-0 p-0 w-100">
+      <h1 class="text-center pageContainer_title d-table py-2 px-3 mb-5">{{projectHeadTitle}}</h1>
+    </div>
+    <div class="searchResult_results container mx-auto p-0 mb-3 pb-5">
+      <div class="media text-right searchResult_results_media pageContainer_coDetails_projects_portfolio col-lg-12">
+        <div class="pageContainer_coDetails row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="row m-0 searchResult_results_media_body_stRow">
+              <div class="col-12 searchResult_results_media_body_details">
+                <h5 class="mt-0 font-weight-bold searchResult_results_media_body_coName">{{projectName}}</h5>
+              </div>
+            </div>
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{projectDesc}}</strong>
+              </div>
+            </div>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+              sollicitudin.
+              Cras
+              purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi
+              vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{projectImgs}}
+            </strong></div>
+            <div class="row text-center pageContainer_coDetails_images">
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+            </div>
+            <div class="py-4"><strong
+              class="searchResult_results_media_body_option">{{projectNaturalImgs}}
+            </strong></div>
+            <div class="row text-center pageContainer_coDetails_images">
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="pageContainer_coDetails_images_block p-2">
+                  <img class="img-fluid" src="images/logo.png"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev pageContainer_coDetails_images_arrowSlider" href="#" role="button"
+           data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next pageContainer_coDetails_images_arrowSlider" href="#" role="button"
+           data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+        <ol class="carousel-indicators pageContainer_coDetails_images_indicator p-0">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <div class="container p-0">
+    <div class="row mx-0 mt-5 pt-3 mb-0">
+      <hr class="pageContainer_borderLine m-0 p-0 w-100">
+      <h1 class="text-center pageContainer_title d-table py-2 px-3 mb-5">{{commentHeadTitle}}</h1>
+    </div>
+    <div class="searchResult_results pageContainer_coDetails_comments row mx-0 mb-3">
+      <form class="w-75 m-auto pb-5">
+        <div class="form-group w-100">
+          <input type="text" class="form-control py-3 w-100"
+                 placeholder="{{commentName}}">
+        </div>
+        <div class="form-group">
+                                    <textarea class="form-control py-3" rows="5"
+                                              placeholder="{{commentDes}}"></textarea>
+        </div>
+        <div class="col-12 text-center p-0 mt-4">
+          <button class="btn">{{postBtn}}</button>
+        </div>
+      </form>
+      <div class="col-md-12">
+        <h5 class="mt-0 py-2 font-weight-bold searchResult_results_media_body_coName text-right">{{latestCommentTitle}}
+        </h5>
+      </div>
+
+      <div class="media text-right searchResult_results_media col-lg-12">
+        <div class="pageContainer_coDetails row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{commentName}}: </strong> name
+              </div>
+            </div>
+
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{commentDes}}:
+            </strong>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+              sollicitudin.
+              Cras
+              purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi
+              vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="media text-right searchResult_results_media col-lg-12">
+        <div class="pageContainer_coDetails row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{commentName}}: </strong> name
+              </div>
+            </div>
+
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{commentDes}}:
+            </strong>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+              sollicitudin.
+              Cras
+              purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi
+              vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="media text-right searchResult_results_media col-lg-12">
+        <div class="pageContainer_coDetails row m-0 py-3">
+          <div class="searchResult_results_media_body">
+            <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+              <div class="py-2">
+                <strong class="searchResult_results_media_body_option">{{commentName}}: </strong> name
+              </div>
+            </div>
+
+            <div class="py-2"><strong
+              class="searchResult_results_media_body_option">{{commentDes}}:
+            </strong>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+              sollicitudin.
+              Cras
+              purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
+              nisi
+              vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<app-copyright></app-copyright>

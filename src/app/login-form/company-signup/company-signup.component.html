@@ -1,0 +1,213 @@
+<div class="container p-5 search_container">
+  <div class="row m-0">
+    <div class="col-md-12 p-0">
+      <div class="clearfix p-0 m-0">
+        <h2 class="font-weight-bold text-center mb-4">{{signUpTitle}}</h2>
+      </div>
+      <br>
+      <form class="row m-0 search_form text-right" #CompanyRegisterForm="ngForm">
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="emailVLD.touched && !emailVLD.valid">
+                  <b *ngIf="emailVLD.errors.required">{{emailValidate}}</b>
+                  <b *ngIf="emailVLD.errors.pattern">{{emailMustValidate}}</b>
+
+                </p>
+                <input required class="form-control search_select"
+                       pattern="\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                       type="email" [(ngModel)]="email" #emailVLD="ngModel" name="emailVLD"
+                       placeholder="{{emailPlaceHolder}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="phoneVLD.touched && !phoneVLD.valid">
+                  <b *ngIf="phoneVLD.errors.required"> {{phoneValidate}}</b>
+
+                </p>
+                <input required class="form-control search_select" type="number" name="phoneVLD" #phoneVLD="ngModel"
+                       [(ngModel)]="phone"
+                       placeholder="{{phonePlaceHolder}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText "
+                   *ngIf="passwordVLD.touched && !passwordVLD.valid">
+                  <b *ngIf="passwordVLD.errors.required">{{passwordValidate}}</b>
+                  <b *ngIf="passwordVLD.errors.minlength">{{passLeastValidate}}</b>
+
+                </p>
+
+                <input required class="form-control search_select" type="password" minlength="8"
+                       data-ng-class="{'ng-invalid':myForm.confirmPassword.$error.match}"
+                       placeholder="{{passwordPlaceHolder}}" [(ngModel)]="password" #passwordVLD="ngModel"
+                       name="passwordVLD"
+                />
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText "
+                   *ngIf="password_confirmationVLD.touched && !password_confirmationVLD.valid">
+                  <b *ngIf="password_confirmationVLD.errors.required">{{passwordValidate}}</b>
+                  <b *ngIf="password_confirmationVLD.errors.match">{{passwordValidate}}</b>
+
+                </p>
+
+                <input required class="form-control search_select" type="password"
+                       [(ngModel)]="password_confirmation" #password_confirmationVLD="ngModel"
+                       match="password"
+                       name="password_confirmationVLD"
+                       placeholder="{{passwordPlaceHolder}}"/>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12" *ngFor="let select of city">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="city_idVLD.touched && !city_idVLD.valid">
+                  <b *ngIf="city_idVLD.errors.required"> {{cityValidate}}</b>
+                </p>
+
+                <select class="form-control search_select" name="city_id" [(ngModel)]="city_id"
+                        #city_idVLD="ngModel" required>
+                  <option>{{chooseCityPlaceHolder}}</option>
+                  <option value="{{select.id}}">{{select.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12" *ngFor="let select of special">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="specialization_idVLD.touched && !specialization_idVLD.valid">
+                  <b *ngIf="specialization_idVLD.errors.required"> {{specializationValidate}}</b>
+                </p>
+                <select class="form-control search_select" name="specialization_id"
+                        [(ngModel)]="specialization_id"
+                        #specialization_idVLD="ngModel" required>
+                  <option value="0">{{choosespecializationPlaceHolder}}</option>
+                  <option value="{{select.id}}">{{select.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="coNameVLD.touched && !coNameVLD.valid">
+                  <b *ngIf="coNameVLD.errors.required"> {{coNameValidate}}</b>
+                </p>
+                <input required class="form-control search_select" type="text" minlength="4"
+                       name="nameVLD" #coNameVLD="ngModel" [(ngModel)]="name"
+
+                       placeholder="{{CompanyName}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="websiteVLD.touched && !websiteVLD.valid">
+                  <b *ngIf="websiteVLD.errors.required"> {{websiteValidate}}</b>
+                  <b *ngIf="websiteVLD.errors.pattern"> {{websiteUrlValidate}}</b>
+                </p>
+                <input required class="form-control search_select" type="url"
+                       pattern="^(https?://)?([a-zA-Z0-9]([a-zA-ZäöüÄÖÜ0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$"
+                       name="websiteVLD" #websiteVLD="ngModel" [(ngModel)]="website"
+                       placeholder="{{websiteUrl}}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 mt-2">
+          <div class="form-group">
+            <div class="row">
+
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="descriptionVLD.touched && !descriptionVLD.valid">
+                  <b *ngIf="descriptionVLD.errors.required"> {{discriptionValidate}}</b>
+                </p>
+                <textarea required class="form-control search_select" type="text" rows="4"
+                          name="descriptionVLD" #descriptionVLD="ngModel" [(ngModel)]="description"
+                          placeholder="{{briefName}}"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 mt-2">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-lg-12">
+                <label class="search_label col-form-label">{{logoUrl}}</label>
+              </div>
+              <div class="col-lg-12">
+                <p class="text-danger text-right font-weight-bold position-absolute validateText"
+                   *ngIf="logoUrlVal.touched && !logoUrlVal.valid">
+                  <b *ngIf="logoUrlVal.errors.required"> {{logoValidate}}</b>
+                </p>
+                <input required class="form-control search_select logoInput" type="file"
+                       (change)="upload($event)" accept=".png,.jpg"
+                       name="logos" #logoUrlVal="ngModel" (ngModel)="logos"
+                       placeholder="{{logoUrl}}"/>
+                <img *ngIf="loadingFile"
+                     src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 text-left mt-2">
+          <img *ngIf="loading"
+               src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+
+          <button class="btn search_btn font-weight-bold" (click)="OnSubmit()" [disabled]="!CompanyRegisterForm.valid">{{signUpBtn}}</button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container px-4">
+  <hr class="search_lineShadow position-relative">
+</div>
+<app-copyright></app-copyright>

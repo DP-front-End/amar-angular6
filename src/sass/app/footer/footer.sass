@@ -1,0 +1,40 @@
+.footer
+  background-color: $dark_bg
+  color: $white_bg
+  &_title
+    background-color: $orange_bg
+  &_lineColor
+    @extend .footer_title
+    height: 64px
+  &_input
+    color: $white_bg
+    background-color: transparent
+    +border(1px, 1px, 1px, 1px, $white_bg, solid)
+    &::placeholder
+      color: $white_bg !important
+      opacity: 1
+    &:-moz-input-placeholder
+      color: $white_bg !important
+      opacity: 1
+    &::-moz-input-placeholder
+      color: $white_bg !important
+      opacity: 1
+    &:-ms-input-placeholder
+      color: $white_bg !important
+      opacity: 1
+    &::-ms-input-placeholder
+      color: $white_bg !important
+      opacity: 1
+    &::-webkit-input-placeholder
+      color: $white_bg !important
+      opacity: 1
+    &:focus
+      border-color: $cayn_txt
+      background-color: #394a52
+      color: $white_bg
+  &_btn
+    @extend .footer_title
+    border: 0
+    @extend %hvr-radial-in
+    &:before
+      background: #ffa42e

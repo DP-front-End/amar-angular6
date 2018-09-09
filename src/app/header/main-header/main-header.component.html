@@ -1,0 +1,22 @@
+<header class="header">
+  <nav class="navbar navbar-expand-md header_stRow">
+    <div class="container p-0">
+      <!--btns !-->
+      <app-btns *ngIf="!companyRole"></app-btns>
+      <app-client-nav *ngIf="clientRole"></app-client-nav>
+      <app-company-nav *ngIf="companyRole"></app-company-nav>
+      <img class="header_logo position-absolute" src="../../../assets/images/logo.png">
+      <!-- social !-->
+      <app-social></app-social>
+    </div>
+  </nav>
+  <div class="header_ndRow">
+    <div class="container h-100 p-0">
+      <!-- nav Responsive !-->
+      <app-nav-responsive></app-nav-responsive>
+      <!-- main nav !-->
+      <app-nav></app-nav>
+    </div>
+  </div>
+</header>
+<app-logo></app-logo>

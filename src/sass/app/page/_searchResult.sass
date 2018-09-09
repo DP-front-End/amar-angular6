@@ -1,0 +1,35 @@
+.searchResult
+  background-color: $white_bg
+  &_ad
+    padding-left: 0
+  &_row
+    margin-top: 130px
+  &_borderLine
+    @extend %borderLine
+  &_title
+    @extend %title
+  &_results
+    direction: ltr
+    &_media
+      direction: rtl
+      background-color: $gray_bg
+      +border(1px, 1px, 1px, 1px, $orange_bg, dashed)
+      +border-radius(5px)
+      &_body
+        &_stRow
+          direction: ltr
+        &_logo
+          width: 100px
+          height: 100px
+        &_details
+          direction: rtl
+          padding: 0
+        &_coName
+          color: $cayn_txt
+        &_option
+          color: $orange_bg
+        &_btn
+          @extend %btnCayn
+          @extend %hvr-radial-in
+          &:before
+            background: #007c8a

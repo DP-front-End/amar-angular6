@@ -1,0 +1,30 @@
+<div class="profile_nav row m-0 card-header p-0">
+  <div class="container">
+    <div class="profile_nav_container col-12 col-sm-12 col-md-10 col-lg-8 mx-auto p-0">
+      <ul class="nav p-0 m-0 font-weight-bold">
+        <li class="profile_nav_container_list nav-item"><a
+          class="profile_nav_container_list_link nav-link" routerLinkActive="profile_nav_active current"
+          routerLink="./company-projects" [routerLinkActiveOptions]="{ exact: true }">{{listProject}}</a></li>
+        <li class="profile_nav_container_list nav-item"><a class="profile_nav_container_list_link nav-link"
+                                                           routerLinkActive="profile_nav_active"
+                                                           routerLink="./company-ads">{{listAds}}</a></li>
+        <li class="profile_nav_container_list nav-item"><a
+          class="profile_nav_container_list_link nav-link"
+          routerLinkActive="profile_nav_active"
+          routerLink="./company-details">{{listDetails}}</a></li>
+        <li class="profile_nav_container_list nav-item"><a
+          class="profile_nav_container_list_link nav-link"
+          routerLinkActive="profile_nav_active"
+          routerLink="./company-time-duration">{{listTimeDuration}}</a></li>
+        <li class="profile_nav_container_list nav-item"><a
+          class="profile_nav_container_list_link nav-link"
+          routerLinkActive="profile_nav_active"
+          routerLink="./company-comments">{{listComments}}</a></li>
+        <li class="profile_nav_container_list nav-item"><a
+          class="profile_nav_container_list_link nav-link"
+          routerLinkActive="profile_nav_active"
+          routerLink="./company-setting">{{changePassTitle}}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

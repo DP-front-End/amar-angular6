@@ -1,0 +1,18 @@
+<li class="nav-item dropdown list-unstyled">
+  <a class="btn navbar-btn ml-0 header_registerBtn" (click)="toggleCollapse()">{{listMyAccount}}</a>
+  <div class="dropdown-menu text-right float-right" [class.show]="show">
+    <a class="dropdown-item" href="#" routerLink="/company">{{listProject}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" routerLink="/company/company-ads">{{listAds}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" routerLink="/company/company-details">{{listDetails}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" routerLink="/company/company-time-duration">{{listTimeDuration}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" routerLink="/company/company-comments">{{listComments}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" routerLink="/company/company-setting">{{changePassTitle}}</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" (click)= "logout()">{{listLogOut}}</a>
+  </div>
+</li>
