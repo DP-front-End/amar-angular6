@@ -114,17 +114,22 @@ export class SearchService {
 
   theRes: any;
 
+  theResult(data) {
+    this.theRes = data.data;
+  }
+
   result(country, city, category, specialization) {
     let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization);
 
-    return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI).subscribe((data) => {
-      this.router.navigate(['result']);
-      this.theRes = data;
-      console.log(this.theRes);
-
-    });
-
+    return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI).subscribe(
+      data => this.theResult(data),
+    );
   }
 
+  newQuery(country, city, category, specialization) {
+    let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization);
+
+    return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI);
+  }
 
 }

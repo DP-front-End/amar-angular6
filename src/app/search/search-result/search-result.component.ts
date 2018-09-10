@@ -7,6 +7,7 @@ import {SearchService} from '../search.service';
 import {ExtendLabels} from '../../extends/extend-form-labels.enum';
 import {Router} from '@angular/router';
 import {SelectsService} from '../../selects.service';
+import {CompanyService} from '../company.service';
 
 @Component({
   selector: 'app-search-result',
@@ -24,7 +25,8 @@ export class SearchResultComponent implements OnInit {
   readonly coPrief: string = ExtendCompanyLabels.briefNameLabel;
   readonly coComments: string = ExtendCommentLabels.commentsTitle;
   readonly moreBtn: string = ExtendBtnNames.readMoreBtnName;
-  result: any[] = [];
+  result: any[];
+  links: any[];
   searchTitle: string = ExtendHeadTitles.searchTitle;
   chooseCountry: string = ExtendLabels.countryLabel;
   chooseCity: string = ExtendLabels.cityLabel;
@@ -33,7 +35,7 @@ export class SearchResultComponent implements OnInit {
   btnName: string = ExtendBtnNames.searchBtn;
   loading: boolean;
 
-  selectCountry: any[] = [];
+  selectCountry: any[];
   selectCity: any[] = [];
   selectCategory: any[] = [];
   selectSpecialization: any[] = [];
@@ -43,10 +45,20 @@ export class SearchResultComponent implements OnInit {
   selectCategoryVal: string = '';
   selectSpecializationVal: string = '';
 
-
   constructor(private selectService: SelectsService,
               private router: Router,
-              private searchServ: SearchService) {
+              private searchServ: SearchService,
+              private coService: CompanyService) {
+  }
+
+  viewCompany(id: number) {
+    this.coService.getDetails(id);
+  }
+
+  theResult(data) {
+    this.result = data.data;
+    this.links = data.links;
+    console.log(this.links);
   }
 
   searchSubmit() {
@@ -55,15 +67,13 @@ export class SearchResultComponent implements OnInit {
     let city = this.selectCityVal;
     let category = this.selectCategoryVal;
     let specialization = this.selectSpecializationVal;
-    this.searchServ.result(country, city, category, specialization);
-
-    this.ngOnInit();
+    this.searchServ.newQuery(country, city, category, specialization).subscribe(
+      data => this.theResult(data),
+    );
   }
 
-
   ngOnInit() {
-    let results = this.searchServ.theRes;
-    this.result.push(results);
+    this.result = this.searchServ.theRes;
     console.log(this.result);
     this.selectService.getCountries().subscribe(data => {
       this.selectCountry = data.data;

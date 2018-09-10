@@ -123,7 +123,7 @@
       <div class="searchResult_results mb-3 col-md-9"
            *ngFor="let select of result">
 
-        <div class="media text-right searchResult_results_media w-100 mb-1" *ngFor="let select of select.data">
+        <div class="media text-right searchResult_results_media w-100 mb-1">
           <div class="row m-0 w-100 p-3">
 
             <div class="searchResult_results_media_body w-100">
@@ -170,7 +170,7 @@ src="{{select.meta_data.logo}}"                       alt="">
               </div>
               <p>{{select.description}}</p>
               <div class="text-left div clearfix">
-                <a class="btn searchResult_results_media_body_btn" href="">{{moreBtn}}</a>
+                <a class="btn searchResult_results_media_body_btn" (click)="viewCompany(select.id)">{{moreBtn}}</a>
               </div>
 
 
@@ -185,5 +185,12 @@ src="{{select.meta_data.logo}}"                       alt="">
     </div>
   </div>
 </section>
+<ul class="pagination">
+  <li class="page-item"><a class="page-link" href="{{links.next}}">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
 <app-copyright></app-copyright>
 

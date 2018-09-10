@@ -35,7 +35,13 @@ export class CompanyProfileComponent {
   readonly commentDes: string = ExtendCommentLabels.Comment;
   readonly postBtn: string = ExtendCommentLabels.postComment;
 
-  companyDTS: any[] = [];
+  private data: any = localStorage.getItem('co');
+  coDetails: any = JSON.parse(this.data);
+  coimages: any[] = JSON.parse(this.data).meta_data.images;
+  workDays: any[] = JSON.parse(this.data).work_days;
+  sundayMorning: any[] = this.workDays[0];
+  sundayNight: any[] = this.workDays[1];
+
 
   constructor(private companyDts: CompanyService) {
 
@@ -43,12 +49,8 @@ export class CompanyProfileComponent {
 
 
   ngOnInit() {
-    this.companyDts.getDetails().subscribe(data => {
-      this.companyDTS = data.data;
-      console.log(data);
-    });
-
-
+console.log(this.coimages);
+console.log(this.sundayMorning)
   }
 }
 

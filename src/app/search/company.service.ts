@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 
 interface getCompanyData {
@@ -57,7 +58,7 @@ interface getCompanyData {
 })
 export class CompanyService {
   private data: any = localStorage.getItem('data');
-  private CompanyID: number = JSON.parse(this.data).id;
+
   private token: string = JSON.parse(this.data).token;
   private apiUrl: string = 'http://www.dp-itc.com:8080/api';
   private CreateAPI = {
@@ -69,11 +70,16 @@ export class CompanyService {
     })
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private router: Router) {
   }
 
-  getDetails() {
-    return this.http.get<getCompanyData>(this.apiUrl + '/company/' + this.CompanyID + '/data', this.CreateAPI);
-  }
+  CoDetails: any;
 
+  getDetails(id) {
+    return this.http.get<getCompanyData>(this.apiUrl + '/company/' + id + '/data', this.CreateAPI).subscribe((data) => {
+      this.router.navigate(['CompanyProfile']);
+      localStorage.setItem('co', JSON.stringify(data.data));
+    });
+  }
 }
