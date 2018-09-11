@@ -26,7 +26,10 @@ export class SearchResultComponent implements OnInit {
   readonly coComments: string = ExtendCommentLabels.commentsTitle;
   readonly moreBtn: string = ExtendBtnNames.readMoreBtnName;
   result: any[];
-  links: any[];
+  moreResult: any[] = [];
+
+  links: string;
+  getAds: any[];
   searchTitle: string = ExtendHeadTitles.searchTitle;
   chooseCountry: string = ExtendLabels.countryLabel;
   chooseCity: string = ExtendLabels.cityLabel;
@@ -44,6 +47,7 @@ export class SearchResultComponent implements OnInit {
   selectCityVal: string = '';
   selectCategoryVal: string = '';
   selectSpecializationVal: string = '';
+  moreBtnNull: boolean;
 
   constructor(private selectService: SelectsService,
               private router: Router,
@@ -55,14 +59,9 @@ export class SearchResultComponent implements OnInit {
     this.coService.getDetails(id);
   }
 
-  theResult(data) {
-    this.result = data.data;
-    this.links = data.links;
-    console.log(this.links);
-  }
 
   searchSubmit() {
-    this.loading = false;
+    this.loading = true;
     let country = this.selectCountryVal;
     let city = this.selectCityVal;
     let category = this.selectCategoryVal;
@@ -70,11 +69,60 @@ export class SearchResultComponent implements OnInit {
     this.searchServ.newQuery(country, city, category, specialization).subscribe(
       data => this.theResult(data),
     );
+    const index: any = this.moreResult;
+    if (index !== -1) {
+      this.moreResult.splice(index, 1);
+    }
+  }
+
+  theResult(data) {
+    this.loading = false;
+    this.result = data.data;
+    if (data.links.next == null) {
+      this.moreBtnNull = false;
+    }
+    else {
+      this.moreBtnNull = true;
+      this.links = data.links.next.substr(length - 1);
+    }
+  }
+  nextLink() {
+    this.loading = true;
+    this.moreBtnNull = false;
+    let country = this.selectCountryVal;
+    let city = this.selectCityVal;
+    let category = this.selectCategoryVal;
+    let specialization = this.selectSpecializationVal;
+    let next = this.links;
+    this.searchServ.nextLink(country, city, category, specialization, next).subscribe(
+      data => this.nextResult(data),
+    );
+  }
+
+  nextResult(data) {
+    this.loading = false;
+    this.moreBtnNull = true;
+    this.moreResult.push(data);
+    if (data.links.next == null) {
+      this.moreBtnNull = false;
+    }
+    else {
+      this.moreBtnNull = true;
+      this.links = data.links.next.substr(length - 1);
+    }
   }
 
   ngOnInit() {
-    this.result = this.searchServ.theRes;
-    console.log(this.result);
+
+    this.result = this.searchServ.theRes.data;
+    this.links = this.searchServ.theRes.links;
+    if (this.searchServ.theRes.links.next == null) {
+      this.moreBtnNull = false;
+    }
+    else {
+      this.moreBtnNull = true;
+      this.links = this.searchServ.theRes.links.next.substr(length - 1);
+    }
     this.selectService.getCountries().subscribe(data => {
       this.selectCountry = data.data;
     });
@@ -87,6 +135,10 @@ export class SearchResultComponent implements OnInit {
     this.selectService.getSpecialization().subscribe(data => {
       this.selectSpecialization = data.data;
     });
+    this.searchServ.getAds().subscribe(data => {
+      this.getAds = data.data;
+    });
   }
+
 
 }

@@ -62,7 +62,7 @@
                 <div class="row m-0">
                   <div class="float-left pr-1 mb-1"><a href="{{coDetails.meta_data.social_networks.facebook}}"><img
                     src="../../../../assets/images/face.png"></a></div>
-                  <div class="float-left pr-1 mb-1" ><a
+                  <div class="float-left pr-1 mb-1"><a
                     href="{{coDetails.meta_data.social_networks.twitter}}"><img
                     src="../../../../assets/images/twt.png"></a></div>
                 </div>
@@ -93,35 +93,138 @@
 
             <div class="row mb-2">
               <div class="col-2">
-                <h5 class="col-12 py-2 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الايام
+                <h5 class="col-12 p-0 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الايام
                 </h5>
               </div>
               <div class="col-5">
-                <h5 class="col-12 py-2 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الفترة
+                <h5 class="col-12 p-0 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الفترة
                   الصباحية</h5>
               </div>
               <div class="col-5">
-                <h5 class="col-12 py-2 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الفترة
+                <h5 class="col-12 p-0 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الفترة
                   المسائية</h5>
               </div>
 
             </div>
-            <div class="row mb-2" *ngFor="let day of sundayMorning">
+            <div class="row">
 
               <div class="col-2">
-                <h5 class="col-12 py-2 text-center pt-0 m-0 font-weight-normal timeDurationTitle">
-                  {{day.day}}
-                </h5>
+
               </div>
               <div class="col-5">
                 <div class="row m-0">
-                  <h6 class="col-6 py-2 text-center pt-0 font-weight-normal timeDurationTitle">من {{day.from}}</h6>
-                  <h6 class="col-6 py-2 text-center pt-0 font-weight-normal timeDurationTitle">الي {{day.to}}</h6>
+                  <h6 class="col-6 p-0 text-center pt-0 font-weight-normal timeDuration"><span>من</span>
+                  </h6>
+                  <h6 class="col-6 p-0 text-center pt-0 font-weight-normal timeDuration">
+                    <span>الي</span></h6>
                 </div>
               </div>
               <div class="col-5">
-                <h5 class="col-12 py-2 text-center pt-0 m-0 font-weight-normal timeDurationTitle">الفترة
-                  المسائية</h5>
+                <div class="row m-0">
+                  <h6 class="col-6 p-0 text-center pt-0 font-weight-normal timeDuration"><span>من</span>
+                  </h6>
+                  <h6 class="col-6 p-0 text-center pt-0 font-weight-normal timeDuration">
+                    <span>الي</span></h6>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+
+              <div class="col-2">
+                <h5 class="col-12 p-0 text-center pt-0 m-0 font-weight-normal timeDurationTitle">
+                  {{saturday}}
+                </h5>
+              </div>
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{saturdayMorning.from}}</h6>
+                  </div>
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{saturdayMorning.to}}</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{saturdayNight.from}}</h6>
+                  </div>
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">\
+                      {{saturdayNight.to}}</h6>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+
+              <div class="col-2">
+                <h5 class="col-12 p-0 text-center pt-0 m-0 font-weight-normal timeDurationTitle">
+                  {{sunday}}
+                </h5>
+              </div>
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{sundayMorning.from}}</h6></div>
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+
+                      {{sundayMorning.to}}</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{sundayNight.from}}</h6>
+                  </div>
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{sundayNight.to}}</h6>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="row">
+
+              <div class="col-2">
+                <h5 class="col-12 p-0 text-center pt-0 m-0 font-weight-normal timeDurationTitle">
+                  {{monday}}
+                </h5>
+              </div>
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{mondayMorning.from}}</h6>
+                  </div>
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{mondayMorning.to}}</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="row">
+                  <div class="col-6">
+                    <h6 class=" p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{mondayNight.from}}</h6>
+                  </div>
+                  <div class="col-6">
+                    <h6 class="p-0 text-center pt-0 font-weight-normal timeDurationTitle durColor">
+                      {{mondayNight.to}}</h6>
+                  </div>
+                </div>
               </div>
 
             </div>

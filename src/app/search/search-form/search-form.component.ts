@@ -43,7 +43,9 @@ export class SearchFormComponent implements OnInit {
     let category = this.selectCategoryVal;
     let specialization = this.selectSpecializationVal;
     this.searchServ.result(country, city, category, specialization);
-    this.router.navigate(['result']);
+    setTimeout(() => {
+      this.router.navigate(['result']);
+    }, 3000);
 
 
     /*.subscribe((data: any) => {

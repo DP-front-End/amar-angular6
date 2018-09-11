@@ -66,10 +66,10 @@
                      *ngIf="catVLD.touched && !catVLD.valid">
                     <b *ngIf="catVLD.errors.required">required</b>
                   </p>
-                  <select  type="email" class="form-control search_select"
-                           [(ngModel)]="selectCategoryVal" name="catVLD" #catVLD="ngModel">
+                  <select type="email" class="form-control search_select"
+                          [(ngModel)]="selectCategoryVal" name="catVLD" #catVLD="ngModel">
                     <option value="">{{companyCategory}}</option>
-                    <option  *ngFor="let select of selectCategory" [ngValue]="select.id">{{select.name}}</option>
+                    <option *ngFor="let select of selectCategory" [ngValue]="select.id">{{select.name}}</option>
                   </select>
                 </div>
               </div>
@@ -81,16 +81,17 @@
                 <div class="col-lg-3">
                   <label class="search_label col-form-label">{{companyIndustry}}</label>
                 </div>
-                <div class="col-lg-9" >
+                <div class="col-lg-9">
                   <p class="text-danger text-right font-weight-bold position-absolute validateText"
                      *ngIf="specializationVLD.touched && !specializationVLD.valid">
                     <b *ngIf="specializationVLD.errors.required">required</b>
                   </p>
-                  <select  type="email" class="form-control search_select"
-                           [(ngModel)]="selectSpecializationVal" name="specializationVLD" #specializationVLD="ngModel">
+                  <select type="email" class="form-control search_select"
+                          [(ngModel)]="selectSpecializationVal" name="specializationVLD" #specializationVLD="ngModel">
                     <option value="">{{companyIndustry}}</option>
                     <ng-container *ngFor="let select of selectCategory">
-                      <option  *ngFor="let select of select.specializations" ngValue="{{select.id}}">{{select.name}}</option>
+                      <option *ngFor="let select of select.specializations" ngValue="{{select.id}}">{{select.name}}
+                      </option>
                     </ng-container>
                   </select>
                 </div>
@@ -119,18 +120,16 @@
       <hr class="searchResult_borderLine m-0 p-0 w-100">
       <h1 class="text-center searchResult_title d-table py-2 px-3 mb-5">{{headTitle}}</h1>
     </div>
-    <div class="w-100 row">
-      <div class="searchResult_results mb-3 col-md-9"
-           *ngFor="let select of result">
-
-        <div class="media text-right searchResult_results_media w-100 mb-1">
+    <div class="w-100 row" *ngFor="let select of result">
+      <div class="searchResult_results mb-3 col-md-9">
+        <div class="media text-right searchResult_results_media w-100">
           <div class="row m-0 w-100 p-3">
 
             <div class="searchResult_results_media_body w-100">
               <div class="row m-0 searchResult_results_media_body_stRow">
                 <div class="col-3 p-0 text-left">
                   <img class="rounded searchResult_results_media_body_logo"
-src="{{select.meta_data.logo}}"                       alt="">
+                       src="{{select.meta_data.logo}}" alt="">
                 </div>
 
                 <div class="col-9 searchResult_results_media_body_details">
@@ -178,19 +177,81 @@ src="{{select.meta_data.logo}}"                       alt="">
           </div>
         </div>
       </div>
-      <div class="col-md-3 searchResult_ad">
-        <app-view-ads></app-view-ads>
+      <div class="col-md-3 searchResult_ad" *ngFor="let ad of getAds">
+        <img class="rounded w-100"
+             src="{{ad.image}}" alt="Generic placeholder image">
       </div>
+    </div>
+    <div class="w-100 row" *ngFor="let select of moreResult">
+      <div class="searchResult_results mb-3 col-md-9" *ngFor="let select of select.data">
+        <div class="media text-right searchResult_results_media w-100">
+          <div class="row m-0 w-100 p-3">
 
+            <div class="searchResult_results_media_body w-100">
+              <div class="row m-0 searchResult_results_media_body_stRow">
+                <div class="col-3 p-0 text-left">
+                  <img class="rounded searchResult_results_media_body_logo"
+                       src="{{select.meta_data.logo}}" alt="">
+                </div>
+
+                <div class="col-9 searchResult_results_media_body_details">
+                  <h5 class="mt-0 font-weight-bold searchResult_results_media_body_coName">{{projectHeadTitle}}<span>: {{select.name}}</span>
+                  </h5>
+                  <div class="clearfix"></div>
+                  <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+                    <div class="py-2"><strong
+                      class="searchResult_results_media_body_option">{{coCity}}</strong><span>: {{select.city.name}}</span>
+                    </div>
+                    <div class="py-2"><strong
+                      class="searchResult_results_media_body_option">{{coCategory}}</strong><span>: {{select.category.name}}</span>
+                    </div>
+                    <div class="py-2"><strong
+                      class="searchResult_results_media_body_option">{{coSpecialization}}</strong><span>: {{select.specialization.name}}</span>
+                    </div>
+                  </div>
+                  <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+                    <div class="py-2">
+                      <strong class="searchResult_results_media_body_option">{{CoRate}}</strong><span>: {{select.average_rating}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+                <div class="py-2">
+                  <strong
+                    class="searchResult_results_media_body_option">{{CoViews}}</strong><span>: {{select.views}}</span>
+                </div>
+                <div class="py-2">
+                  <strong class="searchResult_results_media_body_option">{{coComments}}</strong><span>: {{select.comments_count}}</span>
+                </div>
+              </div>
+              <div class="d-md-flex d-block w-100 navbar p-0 text-right">
+                <div class="py-2">
+                  <strong class="searchResult_results_media_body_option">{{coPrief}}</strong></div>
+              </div>
+              <p>{{select.description}}</p>
+              <div class="text-left div clearfix">
+                <a class="btn searchResult_results_media_body_btn" (click)="viewCompany(select.id)">{{moreBtn}}</a>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 searchResult_ad" *ngFor="let ad of getAds">
+        <img class="rounded w-100"
+             src="{{ad.image}}" alt="Generic placeholder image">
+      </div>
+    </div>
+    <div class="row m-0">
+      <img *ngIf="loading" class="m-auto" style="width: 30px; height: 30px" src="../../../assets/images/loader.svg">
+      <button *ngIf="moreBtnNull" (click)="nextLink()" type="button" class="btn btn-primary btn-md m-auto">المزيد من
+        الشركات
+      </button>
     </div>
   </div>
 </section>
-<ul class="pagination">
-  <li class="page-item"><a class="page-link" href="{{links.next}}">Previous</a></li>
-  <li class="page-item"><a class="page-link" href="#">1</a></li>
-  <li class="page-item"><a class="page-link" href="#">2</a></li>
-  <li class="page-item"><a class="page-link" href="#">3</a></li>
-  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-</ul>
+
 <app-copyright></app-copyright>
 

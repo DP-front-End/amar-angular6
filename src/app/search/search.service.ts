@@ -91,7 +91,30 @@ interface searchResult {
       average_rating: number,
       comments_count: number,
       views: number
-    }]
+    }],
+  links: {
+    first: string,
+    last: string,
+    prev: string,
+    next: string
+  }
+}
+
+interface getAds {
+  data: [
+    {
+      id: number,
+      title: string,
+      content: string,
+      country: string,
+      duration: string,
+      city: string,
+      image: string,
+      status: string,
+      accepted: string
+    }
+    ]
+
 }
 
 @Injectable({
@@ -115,21 +138,48 @@ export class SearchService {
   theRes: any;
 
   theResult(data) {
-    this.theRes = data.data;
+    this.theRes = data;
   }
 
   result(country, city, category, specialization) {
-    let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization);
 
-    return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI).subscribe(
-      data => this.theResult(data),
-    );
+    if (country == '' && city == '' && category == '' && specialization == '') {
+      return this.http.get<searchResult>(this.apiUrl + '/search', this.CreateAPI).subscribe(
+        data => this.theResult(data),
+      );
+    }
+    else {
+      let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization);
+      return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI).subscribe(
+        data => this.theResult(data),
+      );
+    }
   }
 
   newQuery(country, city, category, specialization) {
-    let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization);
+    if (country == '' && city == '' && category == '' && specialization == '') {
+      return this.http.get<searchResult>(this.apiUrl + '/search', this.CreateAPI);
+    }
+    else {
+      let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization);
+      return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI);
+    }
+  }
 
-    return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI);
+  nextLink(country, city, category, specialization, next) {
+    if (country == '' && city == '' && category == '' && specialization == '') {
+      let params = new HttpParams().set('page', next);
+      return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI);
+    }
+    else {
+      let params = new HttpParams().set('country', country).set('city', city).set('category', category).set('specialization', specialization).set('page', next);
+      return this.http.get<searchResult>(this.apiUrl + '/search' + '?' + params, this.CreateAPI);
+    }
+  }
+
+  getAds() {
+    return this.http.get<getAds>(this.apiUrl + '/utilities/ads', this.CreateAPI);
+
   }
 
 }
